@@ -65,10 +65,10 @@ public class PracticeFormWithPageObjectsTests {
             page.chooseReading();
             page.chooseMusic();
         }
-/*      step("download picture); {
+        step("download picture"); {
         page.downloadPicture();
         }
- */
+
         step("Choose state and city");
         {
             page.setStateAndCity(state, city);
@@ -87,7 +87,7 @@ public class PracticeFormWithPageObjectsTests {
             page.checkDateOfBirth(dayofBirth, monthofBirth, yearofBirth);
             page.checkSubjects(subject1, subject2);
             page.checkHobbies();
-//        page.checkPicture();
+            page.checkPicture();
             page.checkAddress(currentAddress);
             page.checkStateAndCity(state, city);
         }
