@@ -18,7 +18,6 @@ public class PracticeFormWithPageObjectsTests {
     RegistrationPage page = new RegistrationPage();
     @BeforeEach
     void beforeEach() {
-//        Configuration.browser = "opera";
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
