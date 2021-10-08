@@ -34,7 +34,6 @@ public class PracticeFormWithPageObjectsTests {
     void practiceFormTest() {
         step("Open practice form page"); {
             page.openPage();
-            Attach.screenshotAs("Open practice form page");
         }
         step("Set name, Email, Tel.Number and address");
         {
@@ -43,7 +42,6 @@ public class PracticeFormWithPageObjectsTests {
             page.setUserEmail(userEmail);
             page.setUserNumber(userNumber);
             page.setCurrentAddress(currentAddress);
-            Attach.screenshotAs("Set name, Email, Tel.Number and address");
         }
         step("Choose gender");
         {
@@ -52,7 +50,6 @@ public class PracticeFormWithPageObjectsTests {
         step("Set date of birth");
         {
             page.calendar.setDate(dayofBirth, monthofBirth, yearofBirth);
-            Attach.screenshotAs("Set date of birth");
         }
         step("Choose subjects of studying");
         {
@@ -72,7 +69,6 @@ public class PracticeFormWithPageObjectsTests {
         step("Choose state and city");
         {
             page.setStateAndCity(state, city);
-            Attach.screenshotAs("Full filled form");
         }
         step("Submit form"); {
         page.submitForm();
