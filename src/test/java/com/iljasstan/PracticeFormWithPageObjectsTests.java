@@ -3,8 +3,10 @@ package com.iljasstan;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.iljasstan.pages.RegistrationPage;
+import config.CredentialsConfig;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -16,6 +18,9 @@ import static io.qameta.allure.Allure.step;
 
 public class PracticeFormWithPageObjectsTests {
     RegistrationPage page = new RegistrationPage();
+    public static CredentialsConfig credentials = ConfigFactory.create(CredentialsConfig.class);
+    String login = credentials.login();
+    String password = credentials.password();
     @BeforeEach
     void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
@@ -26,7 +31,7 @@ public class PracticeFormWithPageObjectsTests {
 
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
+        Configuration.remote = String.format("https://%s:%s@selenoid.autotests.cloud/wd/hub/", login, password);
     }
 
     @Test
