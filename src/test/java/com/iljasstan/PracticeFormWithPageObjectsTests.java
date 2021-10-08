@@ -21,6 +21,7 @@ public class PracticeFormWithPageObjectsTests {
     public static CredentialsConfig credentials = ConfigFactory.create(CredentialsConfig.class);
     String login = credentials.login();
     String password = credentials.password();
+    String url = credentials.urla();
     @BeforeEach
     void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
@@ -31,7 +32,7 @@ public class PracticeFormWithPageObjectsTests {
 
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
-        Configuration.remote = String.format("https://%s:%s@selenoid.autotests.cloud/wd/hub/", login, password);
+        Configuration.remote = String.format(url, login, password);
     }
 
     @Test
