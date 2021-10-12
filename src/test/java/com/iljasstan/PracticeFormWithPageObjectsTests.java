@@ -29,8 +29,7 @@ public class PracticeFormWithPageObjectsTests {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
-        //capabilities.setCapability("browser", "BROWSER_NAME");
-        capabilities.setBrowserName(System.getProperty("BROWSER_NAME"));
+        capabilities.setCapability("browser", "BROWSER_NAME");
 
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
