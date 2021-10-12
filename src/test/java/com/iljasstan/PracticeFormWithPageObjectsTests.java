@@ -22,6 +22,7 @@ public class PracticeFormWithPageObjectsTests {
     String login = credentials.login();
     String password = credentials.password();
     String url = System.getProperty("REMOTE_URL");
+
     @BeforeEach
     void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
@@ -29,7 +30,6 @@ public class PracticeFormWithPageObjectsTests {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
-        capabilities.setCapability("browser", "BROWSER_NAME");
 
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
@@ -39,7 +39,8 @@ public class PracticeFormWithPageObjectsTests {
     @Test
     @DisplayName("Check the filling of the practice form")
     void practiceFormTest() {
-        step("Open practice form page"); {
+        step("Open practice form page");
+        {
             page.openPage();
         }
         step("Set name, Email, Tel.Number and address");
@@ -69,16 +70,18 @@ public class PracticeFormWithPageObjectsTests {
             page.chooseReading();
             page.chooseMusic();
         }
-        step("download picture"); {
-        page.downloadPicture();
+        step("download picture");
+        {
+            page.downloadPicture();
         }
 
         step("Choose state and city");
         {
             page.setStateAndCity(state, city);
         }
-        step("Submit form"); {
-        page.submitForm();
+        step("Submit form");
+        {
+            page.submitForm();
         }
         step("Check form");
         {
