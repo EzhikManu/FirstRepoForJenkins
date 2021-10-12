@@ -22,6 +22,7 @@ public class PracticeFormWithPageObjectsTests {
     String login = credentials.login();
     String password = credentials.password();
     String url = System.getProperty("REMOTE_URL");
+    //String browser = System.getProperty("browser","chrome");
     @BeforeEach
     void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
