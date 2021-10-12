@@ -1,6 +1,5 @@
 package com.iljasstan;
 
-import com.codeborne.selenide.Browser;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.iljasstan.pages.RegistrationPage;
@@ -30,7 +29,8 @@ public class PracticeFormWithPageObjectsTests {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
-        capabilities.setCapability("browser", "BROWSER_NAME");
+        //capabilities.setCapability("browser", "BROWSER_NAME");
+        capabilities.setBrowserName("BROWSER_NAME");
 
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
@@ -96,6 +96,7 @@ public class PracticeFormWithPageObjectsTests {
             page.checkStateAndCity(state, city);
         }
     }
+
     @AfterEach
     void tearDown() {
         Attach.screenshotAs("Last screenshot");
