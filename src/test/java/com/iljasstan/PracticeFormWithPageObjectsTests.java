@@ -1,5 +1,6 @@
 package com.iljasstan;
 
+import com.codeborne.selenide.Browser;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.iljasstan.pages.RegistrationPage;
@@ -22,7 +23,6 @@ public class PracticeFormWithPageObjectsTests {
     String login = credentials.login();
     String password = credentials.password();
     String url = System.getProperty("REMOTE_URL");
-    //String browser = System.getProperty("browser","chrome");
     @BeforeEach
     void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
@@ -30,6 +30,7 @@ public class PracticeFormWithPageObjectsTests {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
+        capabilities.setCapability("browser", "BROWSER_NAME");
 
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
